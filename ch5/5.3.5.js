@@ -21,3 +21,6 @@ Gadget.prototype = (function(){
 })();
 
 var toy = new Gadget();
+
+// 5.3.3べースで比較すると意味が分かる
+// https://gist.github.com/3858997
