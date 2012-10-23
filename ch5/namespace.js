@@ -30,5 +30,6 @@ MYAPP.namespace = function(ns_string){
     return parent;// 返り値は一番最後のプロパティ
 };
 
-var module2 = MYAPP.namespace('MYAPP.modules.module2');
-module2 === MYAPP.modules.module2;// true
+//var module2 = MYAPP.namespace('MYAPP.modules.module2');
+//module2 === MYAPP.modules.module2;// true
+
