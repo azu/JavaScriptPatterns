@@ -55,4 +55,4 @@ MYAPP.utilities.array = (function(){
 })();
 
 MYAPP.utilities.array.isArray([1,2,3]);// 配列化どうか?
-MYAPP.utilities.array.inArray(1, [1,2,3]);// 第一引数が第二匹数の配列に含まれてるかどうか
+MYAPP.utilities.array.indexOf(1, [1,2,3]);// 第一引数が第二匹数の配列に含まれてるかどうか

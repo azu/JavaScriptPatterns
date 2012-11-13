@@ -48,7 +48,7 @@ MYAPP.utilities.array = (function(){
         return ops.call(a) === array_string;
     }
 
-    function inArray(parameters){
+    function indexOf(parameters){
         var needle = parameters.needle;
         var haystack = parameters.haystack;
 
@@ -63,7 +63,7 @@ MYAPP.utilities.array = (function(){
     Constr = function(o){
         this.elements = this.toArray(o);
     }
-    Constr.prototype.inArray = inArray;
+    Constr.prototype.indexOf = indexOf;
     Constr.prototype.isArray = isArray;
     Constr.prototype.constructor = MYAPP.utilities.Array;
     Constr.prototype.toArray = function(obj){
@@ -76,4 +76,5 @@ MYAPP.utilities.array = (function(){
     return Constr;
 })();
 
-var aryUtil = new MYAPP.utilities.array();
+var aryUtil = new MYAPP.utilities.array([1, 2, 3]);
+aryUtil.isArray(aryUtil.elements);// true

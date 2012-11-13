@@ -33,7 +33,7 @@ var myArray = [];
 
 myArray.indexOf = null;
 // こうなるのはmyArray.indexOfが参照してる先がnullになる ≠ indexOfという関数がnullになる
-typeof myArray.inArray === "function";
+typeof myArray.indexOf === "function";
 // なのでinArrayはindexOfを参照してるので、そのまま使える
 
 // 普通のオブジェクトで考えると
