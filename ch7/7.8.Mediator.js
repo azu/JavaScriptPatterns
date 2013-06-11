@@ -2,6 +2,7 @@
  * User: azu
  * Date: 2013/06/11
  * License: MIT License
+ * http://jsfiddle.net/Ueqsf/1/
  */
 var scoreboard = {
     element: document.getElementById("results"),
