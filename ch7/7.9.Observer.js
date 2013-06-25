@@ -8,9 +8,12 @@ var publisher = {
     subscribers: {
         any: []
     },
-    // Constants
+    /**
+     * @enum {String}
+     * @name PubEvent
+     */
     _EVENTS: {
-        unsubscribe: "unsubscribe",
+        unSubscribe: "unSubscribe",
         publish: "publish",
         any: "any"
     },
@@ -25,7 +28,7 @@ var publisher = {
     },
     /**
      * 指定したtypeのsubscribersの配列を返す
-     * @param type
+     * @param type {PubEvent}
      * @returns {Array}
      */
     _getSubscriber: function (type){
@@ -36,8 +39,8 @@ var publisher = {
     },
     /**
      * 購読者の配列に追加
-     * @param fn
-     * @param [type="any"]
+     * @param fn {Function}
+     * @param [type="any"] {PubEvent}
      */
     subscribe: function (fn, type){
         var pubType = type || publisher._EVENTS.any;
@@ -45,16 +48,16 @@ var publisher = {
     },
     /**
      * 購読者の配列から削除
-     * @param fn
-     * @param type
+     * @param fn {Function}
+     * @param type {PubEvent}
      */
     unSubscribe: function (fn, type){
-        this.visitSubscribers(publisher._EVENTS.unsubscribe, fn, type);
+        this.visitSubscribers(publisher._EVENTS.unSubscribe, fn, type);
     },
     /**
      * 指定したtypeのイベントを購読者に通知する
-     * @param publication
-     * @param type
+     * @param publication {Function}
+     * @param type {PubEvent}
      */
     publish: function (publication, type){
         this.visitSubscribers(publisher._EVENTS.publish, publication, type)
@@ -74,7 +77,10 @@ var publisher = {
         }
     }
 };
-
+/**
+ * publisherのメソッドをtargetにコピーする
+ * @param obj
+ */
 function makePublisher(obj){
     var i;
     for (i in publisher) {
@@ -108,9 +114,10 @@ function makePublisher(obj){
 
     paper.subscribe(joe.drinkCoffee);
     paper.subscribe(joe.sundayPreNap, 'monthly');
-
     // Publish
     paper.daily();
+    // => fn = joe.drinkCoffee , args = "big news today"
+    // => joe.drinkCoffee("big news today")
     paper.daily();
 
     paper.monthly();
