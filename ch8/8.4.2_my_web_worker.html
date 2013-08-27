@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>8.4.2_my_web_worker</title>
+    <script>
+        var webWorker = new Worker("my_web_worker.js");
+        webWorker.addEventListener("message", function (evt) {
+            document.body.innerHTML += "<p>message form the background thred: " + evt.data + "</p>";
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
